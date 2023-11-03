@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 450px;
+        height: 700px;
+        border: 1px solid rgb(13, 12, 12);
+        position: relative;
+    }
+
+    form {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+    }
+
+    .message {
+        padding: 10px 40px;
+        height: 40px;
+        margin: 10px;
+        width: 70%;
+        font-size: 30px;
+    }
+
+    input[type="submit"] {
+        width: 80px;
+        height: 60px;
+    }
+
+    li {
+        /* color: white; */
+    }
+</style>
+<body>
+    <div class="chatApp">
+        <div class="container">
+            <div class="chatListContainer">
+                <h1>CHAT MESSAGES</h1>
+                <ul>
+                    {% for chat in messages %}
+                        <li>{{ chat }}</li>
+                    {% endfor %}
+                    {% for db_message in database_messages %}
+                        <li>{{ db_message }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <form action="" method="post">
+                <input type="text" name="message" placeholder="Message" class="message">
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
